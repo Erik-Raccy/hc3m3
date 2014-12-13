@@ -13,6 +13,12 @@ namespace Milestone3
     public partial class MainWindow : Form
     {
         int SelectedGame = 0;
+        const int small=12;
+        const int medium = 18;
+        const int large = 22;
+        Color backC = SystemColors.Control;
+        Color fontC = SystemColors.ControlText;
+        Color borderC = Color.Black;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +42,9 @@ namespace Milestone3
 
             MyGSearchLabel.Visible = false;
             MyGSearch.Visible = false;
+
+            uncolorAll();
+            currentTab(ManageGButton);
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
@@ -56,6 +65,9 @@ namespace Milestone3
             
             MyGSearchLabel.Visible = false;
             MyGSearch.Visible = false;
+
+            uncolorAll();
+            currentTab(SettingsButton);
         }
 
         private void MyGButton_Click(object sender, EventArgs e)
@@ -72,6 +84,9 @@ namespace Milestone3
 
             MyGSearchLabel.Visible = true;
             MyGSearch.Visible = true;
+
+            uncolorAll();
+            currentTab(MyGButton);
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -97,6 +112,7 @@ namespace Milestone3
             CSchemePanel.BringToFront();
             SoundPanel.SendToBack();
             DisplayPanel.SendToBack();
+            currentSettingsTab(CSchemeButton);
         }
 
         private void SoundButton_Click(object sender, EventArgs e)
@@ -106,6 +122,7 @@ namespace Milestone3
             CSchemePanel.SendToBack();
             SoundPanel.BringToFront();
             DisplayPanel.SendToBack();
+            currentSettingsTab(SoundButton);
         }
 
         private void DisplayButton_Click(object sender, EventArgs e)
@@ -115,6 +132,9 @@ namespace Milestone3
             CSchemePanel.SendToBack();
             SoundPanel.SendToBack();
             DisplayPanel.BringToFront();
+
+            currentSettingsTab(DisplayButton);
+            currentDisplaySettings();
         }
 
         private void AddGButton_Click(object sender, EventArgs e)
@@ -124,6 +144,10 @@ namespace Milestone3
             AddGPanel.BringToFront();
             RemoveGPanel.SendToBack();
             EditGPanel.SendToBack();
+
+            uncolorG();
+            currentGTab(AddGButton);
+
         }
 
         private void RemoveGButton_Click(object sender, EventArgs e)
@@ -133,6 +157,9 @@ namespace Milestone3
             AddGPanel.SendToBack();
             RemoveGPanel.BringToFront();
             EditGPanel.SendToBack();
+
+            uncolorG();
+            currentGTab(RemoveGButton);
         }
 
         private void EditGButton_Click(object sender, EventArgs e)
@@ -142,6 +169,9 @@ namespace Milestone3
             AddGPanel.SendToBack();
             RemoveGPanel.SendToBack();
             EditGPanel.BringToFront();
+
+            uncolorG();
+            currentGTab(EditGButton);
         }
 
         private void Genre1G1Info_Click(object sender, EventArgs e)
@@ -162,5 +192,355 @@ namespace Milestone3
             MyGSearch.Visible = false;
         }
         //matt's test line
+
+        //functions to change color
+        private void currentTab(Button tab)
+        {
+            uncolorTabs();
+            tab.BackColor = Color.Teal;
+            tab.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void uncolorTabs()
+        { 
+        MyGButton.BackColor = backC;
+        ManageGButton.BackColor = backC;
+        SettingsButton.BackColor = backC;
+
+        MyGButton.ForeColor = fontC;
+        ManageGButton.ForeColor = fontC;
+        SettingsButton.ForeColor = fontC;
+        }
+
+        private void currentSettingsTab(Button tab)
+        {
+            uncolorSettings();
+            tab.BackColor = Color.Teal;
+            tab.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void uncolorSettings()
+        {
+           CSchemeButton.BackColor = backC;
+           SoundButton.BackColor = backC;
+           DisplayButton.BackColor = backC;
+
+           CSchemeButton.ForeColor = fontC;
+           SoundButton.ForeColor = fontC;
+           DisplayButton.ForeColor = fontC;
+        }
+
+        private void currentIconTab(Button tab)
+        {
+            uncolorIconSettings();
+            tab.BackColor = Color.Teal;
+            tab.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void uncolorIconSettings()
+        {
+            SIcon.BackColor = backC;
+           MIcon.BackColor = backC;
+            LIcon.BackColor = backC;
+
+            SIcon.ForeColor = fontC;
+            MIcon.ForeColor = fontC;
+            LIcon.ForeColor = fontC;
+        }
+
+        private void currentTextTab(Button tab)
+        {
+            uncolorTextSettings();
+            tab.BackColor = Color.Teal;
+            tab.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void uncolorTextSettings()
+        {
+            SText.BackColor = backC;
+            MText.BackColor = backC;
+            LText.BackColor = backC;
+
+            SText.ForeColor = fontC;
+            MText.ForeColor = fontC;
+            LText.ForeColor = fontC;
+        }
+
+        private void currentGTab(Button tab)
+        {
+            uncolorG();
+            tab.BackColor = Color.Teal;
+            tab.ForeColor = Color.WhiteSmoke;
+        }
+
+        private void uncolorG()
+        {
+            AddGButton.BackColor = backC;
+            RemoveGButton.BackColor = backC;
+            EditGButton.BackColor = backC;
+
+            AddGButton.ForeColor = fontC;
+            RemoveGButton.ForeColor = fontC;
+            EditGButton.ForeColor = fontC;
+        }
+        private void uncolorAll()
+        {
+            uncolorG();
+            uncolorTabs();
+            uncolorSettings();
+            uncolorIconSettings();
+            uncolorTextSettings();
+        }
+        //functions to change color end.
+        private void SIcon_Click(object sender, EventArgs e)
+        {
+            currentIconTab(SIcon);
+        }
+
+        private void MIcon_Click(object sender, EventArgs e)
+        {
+            currentIconTab(MIcon);
+        }
+
+        private void LIcon_Click(object sender, EventArgs e)
+        {
+            currentIconTab(LIcon);
+
+        }
+
+        private void SText_Click(object sender, EventArgs e)
+        {
+            currentTextTab(SText);
+            changeTextSize(12);
+        }
+
+        private void MText_Click(object sender, EventArgs e)
+        {
+            currentTextTab(MText);
+            changeTextSize(18);
+        }
+
+        private void LText_Click(object sender, EventArgs e)
+        {
+            currentTextTab(LText);
+            changeTextSize(22);
+        }
+
+        private void changeTextSize(int FontSize)
+        {
+            ManageGButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            SettingsButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            MyGButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            CSchemeButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            SoundButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            DisplayButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            AddGButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            RemoveGButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            EditGButton.Font = new Font("Microsoft Sans Serif", FontSize);
+            SIcon.Font = new Font("Microsoft Sans Serif", FontSize);
+            MIcon.Font = new Font("Microsoft Sans Serif", FontSize);
+            LIcon.Font = new Font("Microsoft Sans Serif", FontSize);
+            BackgroundColor.Font = new Font("Microsoft Sans Serif", FontSize);
+            FontColor.Font = new Font("Microsoft Sans Serif", FontSize);
+            Recommended.Font = new Font("Microsoft Sans Serif", FontSize);
+        }
+
+        private void currentDisplaySettings()
+        {
+            //put if statements for icons here
+            currentIconTab(MIcon);
+         
+         if(AddGButton.Font.Size==small)
+         {
+             currentTextTab(SText);
+         }
+         else if (AddGButton.Font.Size == large)
+         {
+             currentTextTab(LText);
+         }
+         else
+         {
+             currentTextTab(MText);
+         }
+        }
+        //background colors
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            backC = button2.BackColor;
+            uncolorAll();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            backC = button1.BackColor;
+            uncolorAll();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+             backC = button3.BackColor;
+             uncolorAll();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+             backC = button4.BackColor;
+             uncolorAll();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            backC = button5.BackColor; uncolorAll();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            backC = button6.BackColor; uncolorAll();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            backC = button7.BackColor; uncolorAll();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            backC = button8.BackColor; uncolorAll();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            backC = button9.BackColor; uncolorAll();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            backC = button10.BackColor; uncolorAll();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            backC = button11.BackColor; uncolorAll();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            backC = button12.BackColor; uncolorAll();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            backC = button13.BackColor; uncolorAll();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            backC = button14.BackColor; uncolorAll();
+        }
+
+        //background colors end
+
+        //font colors
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            fontC = button28.BackColor; uncolorAll();
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            fontC = button27.BackColor; uncolorAll();
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            fontC = button26.BackColor; uncolorAll();
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            fontC = button25.BackColor; uncolorAll();
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            fontC = button24.BackColor; uncolorAll();
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            fontC = button23.BackColor; uncolorAll();
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            fontC = button22.BackColor; uncolorAll();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            fontC = button21.BackColor; uncolorAll();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            fontC = button20.BackColor; uncolorAll();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            fontC = button19.BackColor; uncolorAll();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            fontC = button18.BackColor; uncolorAll();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            fontC = button17.BackColor; uncolorAll();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            fontC = button16.BackColor; uncolorAll();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            fontC = button15.BackColor; uncolorAll();
+        }
+        //font colors end
+      
+        //presets
+        private void button32_Click(object sender, EventArgs e)
+        {
+            backC = button32.BackColor;
+            fontC = button32.ForeColor;
+            uncolorAll();
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            backC = button31.BackColor;
+            fontC = button31.ForeColor;
+            uncolorAll();
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            backC = button30.BackColor;
+            fontC = button30.ForeColor;
+            uncolorAll();
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            backC = button29.BackColor;
+            fontC = button29.ForeColor;
+            uncolorAll();
+        }
     }
 }
