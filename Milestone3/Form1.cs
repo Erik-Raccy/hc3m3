@@ -19,6 +19,10 @@ namespace Milestone3
 
         private void ManageGButton_Click(object sender, EventArgs e)
         {
+            AddGPanel.Visible = false;
+            RemoveGPanel.Visible = false;
+            EditGPanel.Visible = false;
+
             ManageGPanel.BringToFront();
             MyGPanel.SendToBack();
             SettingsPanel.SendToBack();
@@ -33,6 +37,10 @@ namespace Milestone3
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
+            CSchemePanel.Visible = false;
+            SoundPanel.Visible = false;
+            DisplayPanel.Visible = false;
+            
             SettingsPanel.BringToFront();
             ManageGPanel.SendToBack();
             MyGPanel.SendToBack();
@@ -100,14 +108,31 @@ namespace Milestone3
             DisplayPanel.BringToFront();
         }
 
-        private void SettingsPanel_VisibleChanged(object sender, EventArgs e)
+        private void AddGButton_Click(object sender, EventArgs e)
         {
-            if (SettingsPanel.Visible == true)
-            {
-                CSchemePanel.Visible = false;
-                SoundPanel.Visible = false;
-                DisplayPanel.Visible = false;
-            }
+            AddGPanel.Visible = true;
+
+            AddGPanel.BringToFront();
+            RemoveGPanel.SendToBack();
+            EditGPanel.SendToBack();
+        }
+
+        private void RemoveGButton_Click(object sender, EventArgs e)
+        {
+            RemoveGPanel.Visible = true;
+
+            AddGPanel.SendToBack();
+            RemoveGPanel.BringToFront();
+            EditGPanel.SendToBack();
+        }
+
+        private void EditGButton_Click(object sender, EventArgs e)
+        {
+            EditGPanel.Visible = true;
+
+            AddGPanel.SendToBack();
+            RemoveGPanel.SendToBack();
+            EditGPanel.BringToFront();
         }
         //matt's test line
     }
