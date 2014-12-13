@@ -72,6 +72,43 @@ namespace Milestone3
             MyGSearchLabel.Visible = true;
             MyGSearch.Visible = true;
         }
+
+        private void CSchemeButton_Click(object sender, EventArgs e)
+        {
+            CSchemePanel.Visible = true;
+            
+            CSchemePanel.BringToFront();
+            SoundPanel.SendToBack();
+            DisplayPanel.SendToBack();
+        }
+
+        private void SoundButton_Click(object sender, EventArgs e)
+        {
+            SoundPanel.Visible = true;
+            
+            CSchemePanel.SendToBack();
+            SoundPanel.BringToFront();
+            DisplayPanel.SendToBack();
+        }
+
+        private void DisplayButton_Click(object sender, EventArgs e)
+        {
+            DisplayPanel.Visible = true;
+            
+            CSchemePanel.SendToBack();
+            SoundPanel.SendToBack();
+            DisplayPanel.BringToFront();
+        }
+
+        private void SettingsPanel_VisibleChanged(object sender, EventArgs e)
+        {
+            if (SettingsPanel.Visible == true)
+            {
+                CSchemePanel.Visible = false;
+                SoundPanel.Visible = false;
+                DisplayPanel.Visible = false;
+            }
+        }
         //matt's test line
     }
 }
