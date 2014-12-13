@@ -12,6 +12,7 @@ namespace Milestone3
 {
     public partial class MainWindow : Form
     {
+        int SelectedGame = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -26,10 +27,12 @@ namespace Milestone3
             ManageGPanel.BringToFront();
             MyGPanel.SendToBack();
             SettingsPanel.SendToBack();
+            GInfoPanel.SendToBack();
 
             MyGPanel.Visible = false;
             ManageGPanel.Visible = true;
             SettingsPanel.Visible = false;
+            GInfoPanel.Visible = false;
 
             MyGSearchLabel.Visible = false;
             MyGSearch.Visible = false;
@@ -44,10 +47,12 @@ namespace Milestone3
             SettingsPanel.BringToFront();
             ManageGPanel.SendToBack();
             MyGPanel.SendToBack();
+            GInfoPanel.SendToBack();
 
             MyGPanel.Visible = false;
             ManageGPanel.Visible = false;
             SettingsPanel.Visible = true;
+            GInfoPanel.Visible = false;
             
             MyGSearchLabel.Visible = false;
             MyGSearch.Visible = false;
@@ -58,10 +63,12 @@ namespace Milestone3
             MyGPanel.BringToFront();
             ManageGPanel.SendToBack();
             SettingsPanel.SendToBack();
+            GInfoPanel.SendToBack();
 
             MyGPanel.Visible = true;
             ManageGPanel.Visible = false;
             SettingsPanel.Visible = false;
+            GInfoPanel.Visible = false;
 
             MyGSearchLabel.Visible = true;
             MyGSearch.Visible = true;
@@ -72,10 +79,12 @@ namespace Milestone3
             MyGPanel.BringToFront();
             ManageGPanel.SendToBack();
             SettingsPanel.SendToBack();
+            GInfoPanel.SendToBack();
 
             MyGPanel.Visible = true;
             ManageGPanel.Visible = false;
             SettingsPanel.Visible = false;
+            GInfoPanel.Visible = false;
 
             MyGSearchLabel.Visible = true;
             MyGSearch.Visible = true;
@@ -133,6 +142,24 @@ namespace Milestone3
             AddGPanel.SendToBack();
             RemoveGPanel.SendToBack();
             EditGPanel.BringToFront();
+        }
+
+        private void Genre1G1Info_Click(object sender, EventArgs e)
+        {
+            SelectedGame = 1;
+
+            GInfoPanel.BringToFront();
+            MyGPanel.SendToBack();
+            ManageGPanel.SendToBack();
+            SettingsPanel.SendToBack();
+
+            GInfoPanel.Visible = true;
+            MyGPanel.Visible = false;
+            ManageGPanel.Visible = false;
+            SettingsPanel.Visible = false;
+
+            MyGSearchLabel.Visible = false;
+            MyGSearch.Visible = false;
         }
         //matt's test line
     }
