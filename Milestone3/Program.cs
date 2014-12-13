@@ -18,5 +18,6 @@ namespace Milestone3
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
         }
+        //Matts test line
     }
 }
