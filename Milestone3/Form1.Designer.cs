@@ -1011,10 +1011,6 @@
             // 
             this.EditGList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditGList.FormattingEnabled = true;
-            this.EditGList.Items.AddRange(new object[] {
-            "Game1",
-            "Game2",
-            "Game3"});
             this.EditGList.Location = new System.Drawing.Point(89, 42);
             this.EditGList.Name = "EditGList";
             this.EditGList.Size = new System.Drawing.Size(197, 26);

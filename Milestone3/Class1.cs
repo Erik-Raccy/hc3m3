@@ -9,7 +9,10 @@ namespace Milestone3
     public class FileReader
     {
         List<string> gamelist = new List<string>();
-
+        public FileReader()
+        {
+            getGames();
+        }
         public List<string> getGames()
         {
             string line;
@@ -23,6 +26,15 @@ namespace Milestone3
             return gamelist;
         }
 
+        public List<string> getGamesList()
+        {
+        return gamelist;
+        }
+
+        public void setGameList(List <string> game)
+        {
+            gamelist=game;
+        }
 
         
         public List<List<string>> getGameInfo(String gameName)

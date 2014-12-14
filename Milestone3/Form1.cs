@@ -117,10 +117,10 @@ namespace Milestone3
             MyGSearchLabel.Visible = true;
             MyGSearch.Visible = true;
             
-            for (int i = 0; i < reader.getGames().Count() - 1; i++)
+            for (int i = 0; i < reader.getGamesList().Count(); i++)
             {
-                Console.WriteLine("hi");
-                EditGList.Items.Add(reader.getGames()[i]);
+                Console.WriteLine(i);
+                EditGList.Items.Add(reader.getGamesList()[i]);
             }
   
         }
