@@ -35,11 +35,9 @@
             this.MyGSearch = new System.Windows.Forms.TextBox();
             this.MyGSearchLabel = new System.Windows.Forms.Label();
             this.Genre1 = new System.Windows.Forms.Panel();
-            this.Genre1G1Info = new System.Windows.Forms.Button();
-            this.Genre1G1 = new System.Windows.Forms.PictureBox();
             this.Genre1Add = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Genre2 = new System.Windows.Forms.Panel();
+            this.Genre3 = new System.Windows.Forms.Panel();
             this.GenreLabel1 = new System.Windows.Forms.Label();
             this.GenreLabel2 = new System.Windows.Forms.Label();
             this.GenreLabel3 = new System.Windows.Forms.Label();
@@ -143,9 +141,12 @@
             this.GInfoName = new System.Windows.Forms.Label();
             this.GInfoImage = new System.Windows.Forms.PictureBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Genre2Add = new System.Windows.Forms.PictureBox();
+            this.Genre3Add = new System.Windows.Forms.PictureBox();
             this.Genre1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Genre1G1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Genre1Add)).BeginInit();
+            this.Genre2.SuspendLayout();
+            this.Genre3.SuspendLayout();
             this.MyGPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.CSchemePanel.SuspendLayout();
@@ -165,6 +166,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ScreenShot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Genre2Add)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Genre3Add)).BeginInit();
             this.SuspendLayout();
             // 
             // MyGButton
@@ -220,63 +223,43 @@
             this.Genre1.AutoScroll = true;
             this.Genre1.BackColor = System.Drawing.SystemColors.Control;
             this.Genre1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre1.Controls.Add(this.Genre1G1Info);
-            this.Genre1.Controls.Add(this.Genre1G1);
             this.Genre1.Controls.Add(this.Genre1Add);
             this.Genre1.Location = new System.Drawing.Point(18, 45);
             this.Genre1.Name = "Genre1";
             this.Genre1.Size = new System.Drawing.Size(1126, 162);
             this.Genre1.TabIndex = 1;
             // 
-            // Genre1G1Info
-            // 
-            this.Genre1G1Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Genre1G1Info.Location = new System.Drawing.Point(103, 104);
-            this.Genre1G1Info.Name = "Genre1G1Info";
-            this.Genre1G1Info.Size = new System.Drawing.Size(36, 38);
-            this.Genre1G1Info.TabIndex = 2;
-            this.Genre1G1Info.Text = "i";
-            this.Genre1G1Info.UseVisualStyleBackColor = true;
-            this.Genre1G1Info.Click += new System.EventHandler(this.Genre1G1Info_Click);
-            // 
-            // Genre1G1
-            // 
-            this.Genre1G1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre1G1.Location = new System.Drawing.Point(22, 16);
-            this.Genre1G1.Name = "Genre1G1";
-            this.Genre1G1.Size = new System.Drawing.Size(104, 109);
-            this.Genre1G1.TabIndex = 1;
-            this.Genre1G1.TabStop = false;
-            // 
             // Genre1Add
             // 
             this.Genre1Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Genre1Add.Image = ((System.Drawing.Image)(resources.GetObject("Genre1Add.Image")));
-            this.Genre1Add.Location = new System.Drawing.Point(166, 16);
+            this.Genre1Add.Location = new System.Drawing.Point(22, 14);
             this.Genre1Add.Name = "Genre1Add";
             this.Genre1Add.Size = new System.Drawing.Size(104, 109);
             this.Genre1Add.TabIndex = 0;
             this.Genre1Add.TabStop = false;
             // 
-            // panel1
+            // Genre2
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(18, 248);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1126, 148);
-            this.panel1.TabIndex = 2;
+            this.Genre2.AutoScroll = true;
+            this.Genre2.BackColor = System.Drawing.SystemColors.Control;
+            this.Genre2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Genre2.Controls.Add(this.Genre2Add);
+            this.Genre2.Location = new System.Drawing.Point(18, 248);
+            this.Genre2.Name = "Genre2";
+            this.Genre2.Size = new System.Drawing.Size(1126, 148);
+            this.Genre2.TabIndex = 2;
             // 
-            // panel2
+            // Genre3
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(18, 457);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1126, 148);
-            this.panel2.TabIndex = 3;
+            this.Genre3.AutoScroll = true;
+            this.Genre3.BackColor = System.Drawing.SystemColors.Control;
+            this.Genre3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Genre3.Controls.Add(this.Genre3Add);
+            this.Genre3.Location = new System.Drawing.Point(18, 457);
+            this.Genre3.Name = "Genre3";
+            this.Genre3.Size = new System.Drawing.Size(1126, 148);
+            this.Genre3.TabIndex = 3;
             // 
             // GenreLabel1
             // 
@@ -317,8 +300,8 @@
             this.MyGPanel.Controls.Add(this.GenreLabel3);
             this.MyGPanel.Controls.Add(this.GenreLabel2);
             this.MyGPanel.Controls.Add(this.GenreLabel1);
-            this.MyGPanel.Controls.Add(this.panel2);
-            this.MyGPanel.Controls.Add(this.panel1);
+            this.MyGPanel.Controls.Add(this.Genre3);
+            this.MyGPanel.Controls.Add(this.Genre2);
             this.MyGPanel.Controls.Add(this.Genre1);
             this.MyGPanel.Location = new System.Drawing.Point(0, 60);
             this.MyGPanel.Name = "MyGPanel";
@@ -1379,6 +1362,26 @@
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
             // 
+            // Genre2Add
+            // 
+            this.Genre2Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Genre2Add.Image = ((System.Drawing.Image)(resources.GetObject("Genre2Add.Image")));
+            this.Genre2Add.Location = new System.Drawing.Point(22, 17);
+            this.Genre2Add.Name = "Genre2Add";
+            this.Genre2Add.Size = new System.Drawing.Size(104, 109);
+            this.Genre2Add.TabIndex = 1;
+            this.Genre2Add.TabStop = false;
+            // 
+            // Genre3Add
+            // 
+            this.Genre3Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Genre3Add.Image = ((System.Drawing.Image)(resources.GetObject("Genre3Add.Image")));
+            this.Genre3Add.Location = new System.Drawing.Point(22, 8);
+            this.Genre3Add.Name = "Genre3Add";
+            this.Genre3Add.Size = new System.Drawing.Size(104, 109);
+            this.Genre3Add.TabIndex = 1;
+            this.Genre3Add.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1390,16 +1393,17 @@
             this.Controls.Add(this.ManageGButton);
             this.Controls.Add(this.MyGButton);
             this.Controls.Add(this.MyGSearchLabel);
-            this.Controls.Add(this.ManageGPanel);
-            this.Controls.Add(this.SettingsPanel);
             this.Controls.Add(this.MyGPanel);
             this.Controls.Add(this.GInfoPanel);
+            this.Controls.Add(this.ManageGPanel);
+            this.Controls.Add(this.SettingsPanel);
             this.Name = "MainWindow";
             this.Text = "Ice";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Genre1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Genre1G1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Genre1Add)).EndInit();
+            this.Genre2.ResumeLayout(false);
+            this.Genre3.ResumeLayout(false);
             this.MyGPanel.ResumeLayout(false);
             this.MyGPanel.PerformLayout();
             this.SettingsPanel.ResumeLayout(false);
@@ -1427,6 +1431,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ScreenShot1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Genre2Add)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Genre3Add)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1441,8 +1447,8 @@
         private System.Windows.Forms.Label MyGSearchLabel;
         private System.Windows.Forms.Panel Genre1;
         private System.Windows.Forms.PictureBox Genre1Add;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel Genre2;
+        private System.Windows.Forms.Panel Genre3;
         private System.Windows.Forms.Label GenreLabel1;
         private System.Windows.Forms.Label GenreLabel2;
         private System.Windows.Forms.Label GenreLabel3;
@@ -1511,8 +1517,6 @@
         private System.Windows.Forms.Label GInfoScreenshots;
         private System.Windows.Forms.PictureBox GInfoPlay;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.PictureBox Genre1G1;
-        private System.Windows.Forms.Button Genre1G1Info;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
@@ -1548,6 +1552,8 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Label Recommended;
         private System.Windows.Forms.ComboBox EditGList;
+        private System.Windows.Forms.PictureBox Genre2Add;
+        private System.Windows.Forms.PictureBox Genre3Add;
     }
 }
 

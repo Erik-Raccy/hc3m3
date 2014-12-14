@@ -12,7 +12,7 @@ namespace Milestone3
         public FileReader()
         {
             getGames();
-            getGameInfo("LoL");
+           // getGameInfo("LoL");
         }
         public List<string> getGames()
         {

@@ -122,7 +122,12 @@ namespace Milestone3
                 Console.WriteLine(i);
                 EditGList.Items.Add(reader.getGamesList()[i]);
             }
-  
+
+      
+
+           // for(int i;Genre1.count>i;i++)
+            //populater all the genres
+           populateGenre("moba");
         }
 
         private void CSchemeButton_Click(object sender, EventArgs e)
@@ -563,5 +568,58 @@ namespace Milestone3
             uncolorAll();
         }
 
+        private void populateGenre(String genre)
+        {
+            PictureBox[] gamePics = new PictureBox[30];
+            Button[] gameiButtons = new Button[30];
+            for (int i = 0; i < reader.getGamesList().Count(); i++)
+            {
+                gamePics[i] = new PictureBox();
+                gamePics[i].Size = new Size(104, 109);
+                // gamePics[0].Visible = true;
+                gamePics[i].BorderStyle = BorderStyle.FixedSingle;
+
+
+                gameiButtons[i] = new Button();
+                gameiButtons[i].Size = new Size(36, 38);
+                gameiButtons[i].BackColor = SystemColors.Control;
+                //  gameiButtons[0].BorderStyle = BorderStyle.FixedSingle;
+                gameiButtons[i].Text = "i";
+
+                gameiButtons[i].Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold | FontStyle.Italic);
+
+
+                if (genre == "moba")
+                {
+                    Genre1.Controls.Add(gamePics[i]);
+                    Genre1.Controls.Add(gameiButtons[i]);
+
+                    gameiButtons[i].BringToFront();
+                    gamePics[i].Location = new Point(Genre1Add.Location.X, Genre1Add.Location.Y);
+                    gameiButtons[i].Location = new Point(Genre1Add.Location.X + 81, Genre1Add.Location.Y + 88);
+                    Genre1Add.Location = new Point(Genre1Add.Location.X + 144, Genre1Add.Location.Y);
+                }
+                else if (genre == "shooter")
+                {
+                    Genre2.Controls.Add(gamePics[i]);
+                    Genre2.Controls.Add(gameiButtons[i]);
+
+                    gameiButtons[i].BringToFront();
+                    gamePics[i].Location = new Point(Genre2Add.Location.X, Genre2Add.Location.Y);
+                    gameiButtons[i].Location = new Point(Genre2Add.Location.X + 81, Genre2Add.Location.Y + 88);
+                    Genre2Add.Location = new Point(Genre2Add.Location.X + 144, Genre2Add.Location.Y);
+                }
+                else if (genre == "fucker")
+                {
+                    Genre3.Controls.Add(gamePics[i]);
+                    Genre3.Controls.Add(gameiButtons[i]);
+
+                    gameiButtons[i].BringToFront();
+                    gamePics[i].Location = new Point(Genre3Add.Location.X, Genre3Add.Location.Y);
+                    gameiButtons[i].Location = new Point(Genre3Add.Location.X + 81, Genre3Add.Location.Y + 88);
+                    Genre3Add.Location = new Point(Genre3Add.Location.X + 144, Genre3Add.Location.Y);
+                }
+            }
+        }
     }
 }
