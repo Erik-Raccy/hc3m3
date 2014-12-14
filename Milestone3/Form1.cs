@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace Milestone3
 {
-    public partial class MainWindow : Form
+    public partial class MainWindow : Form 
     {
+        FileReader reader=new FileReader();
         int SelectedGame = 0;
         const int small=12;
         const int medium = 18;
@@ -26,6 +27,8 @@ namespace Milestone3
 
         private void ManageGButton_Click(object sender, EventArgs e)
         {
+            if (ManageGButton.BackColor != Color.Teal)
+            {
             AddGPanel.Visible = false;
             RemoveGPanel.Visible = false;
             EditGPanel.Visible = false;
@@ -43,12 +46,16 @@ namespace Milestone3
             MyGSearchLabel.Visible = false;
             MyGSearch.Visible = false;
 
-            uncolorAll();
-            currentTab(ManageGButton);
-        }
+           
+                uncolorAll();
+                currentTab(ManageGButton);
+            }        
+            }
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
+            if (SettingsButton.BackColor != Color.Teal)
+            {
             CSchemePanel.Visible = false;
             SoundPanel.Visible = false;
             DisplayPanel.Visible = false;
@@ -66,27 +73,33 @@ namespace Milestone3
             MyGSearchLabel.Visible = false;
             MyGSearch.Visible = false;
 
-            uncolorAll();
-            currentTab(SettingsButton);
+            
+                uncolorAll();
+                currentTab(SettingsButton);
+            }    
+            
         }
 
         private void MyGButton_Click(object sender, EventArgs e)
         {
-            MyGPanel.BringToFront();
-            ManageGPanel.SendToBack();
-            SettingsPanel.SendToBack();
-            GInfoPanel.SendToBack();
+            if (MyGButton.BackColor != Color.Teal)
+            {
+                MyGPanel.BringToFront();
+                ManageGPanel.SendToBack();
+                SettingsPanel.SendToBack();
+                GInfoPanel.SendToBack();
 
-            MyGPanel.Visible = true;
-            ManageGPanel.Visible = false;
-            SettingsPanel.Visible = false;
-            GInfoPanel.Visible = false;
+                MyGPanel.Visible = true;
+                ManageGPanel.Visible = false;
+                SettingsPanel.Visible = false;
+                GInfoPanel.Visible = false;
 
-            MyGSearchLabel.Visible = true;
-            MyGSearch.Visible = true;
+                MyGSearchLabel.Visible = true;
+                MyGSearch.Visible = true;
 
-            uncolorAll();
-            currentTab(MyGButton);
+                uncolorAll();
+                currentTab(MyGButton);
+            }
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -541,6 +554,11 @@ namespace Milestone3
             backC = button29.BackColor;
             fontC = button29.ForeColor;
             uncolorAll();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

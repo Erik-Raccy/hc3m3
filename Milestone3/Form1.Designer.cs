@@ -110,7 +110,6 @@
             this.EditGConfirm = new System.Windows.Forms.Button();
             this.EditSpecsText = new System.Windows.Forms.TextBox();
             this.EditGenreText = new System.Windows.Forms.TextBox();
-            this.EditGText = new System.Windows.Forms.TextBox();
             this.EditSpecsLabel = new System.Windows.Forms.Label();
             this.EditGenreLabel = new System.Windows.Forms.Label();
             this.EditGLabel = new System.Windows.Forms.Label();
@@ -143,6 +142,7 @@
             this.GInfoName = new System.Windows.Forms.Label();
             this.GInfoImage = new System.Windows.Forms.PictureBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.Genre1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Genre1G1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Genre1Add)).BeginInit();
@@ -994,11 +994,11 @@
             // EditGPanel
             // 
             this.EditGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EditGPanel.Controls.Add(this.listBox1);
             this.EditGPanel.Controls.Add(this.EditGCancel);
             this.EditGPanel.Controls.Add(this.EditGConfirm);
             this.EditGPanel.Controls.Add(this.EditSpecsText);
             this.EditGPanel.Controls.Add(this.EditGenreText);
-            this.EditGPanel.Controls.Add(this.EditGText);
             this.EditGPanel.Controls.Add(this.EditSpecsLabel);
             this.EditGPanel.Controls.Add(this.EditGenreLabel);
             this.EditGPanel.Controls.Add(this.EditGLabel);
@@ -1040,14 +1040,6 @@
             this.EditGenreText.Name = "EditGenreText";
             this.EditGenreText.Size = new System.Drawing.Size(186, 24);
             this.EditGenreText.TabIndex = 4;
-            // 
-            // EditGText
-            // 
-            this.EditGText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditGText.Location = new System.Drawing.Point(95, 41);
-            this.EditGText.Name = "EditGText";
-            this.EditGText.Size = new System.Drawing.Size(186, 24);
-            this.EditGText.TabIndex = 3;
             // 
             // EditSpecsLabel
             // 
@@ -1378,6 +1370,15 @@
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(97, 45);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(186, 17);
+            this.listBox1.TabIndex = 8;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1389,10 +1390,10 @@
             this.Controls.Add(this.ManageGButton);
             this.Controls.Add(this.MyGButton);
             this.Controls.Add(this.MyGSearchLabel);
+            this.Controls.Add(this.ManageGPanel);
             this.Controls.Add(this.SettingsPanel);
             this.Controls.Add(this.MyGPanel);
             this.Controls.Add(this.GInfoPanel);
-            this.Controls.Add(this.ManageGPanel);
             this.Name = "MainWindow";
             this.Text = "Ice";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -1489,7 +1490,6 @@
         private System.Windows.Forms.Button AddDone;
         private System.Windows.Forms.TextBox EditSpecsText;
         private System.Windows.Forms.TextBox EditGenreText;
-        private System.Windows.Forms.TextBox EditGText;
         private System.Windows.Forms.Label EditSpecsLabel;
         private System.Windows.Forms.Button RemoveCancel;
         private System.Windows.Forms.Button RemoveConfirm;
@@ -1547,6 +1547,7 @@
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Label Recommended;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
