@@ -12,6 +12,7 @@ namespace Milestone3
         public FileReader()
         {
             getGames();
+            getGameInfo("LoL");
         }
         public List<string> getGames()
         {
@@ -59,7 +60,16 @@ namespace Milestone3
                 }
                 
             }
-            return game;
+
+           // for (int i = 0; game.Count() > i; i++)
+           // {
+             //   for (int j = 0; game[i].Count() > j; j++)
+              //  {
+              //      Console.WriteLine(game[i][j]);
+              //  }
+             //   Console.WriteLine("Property " + i + " done");
+         //   }
+                return game;
         }
 
     }
