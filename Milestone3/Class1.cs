@@ -8,27 +8,10 @@ namespace Milestone3
 {
     public class FileReader
     {
-        List<string> gamelist = new List<string>();
+        List<List<string>> game = new List<List<string>>();
 
-        public List<string> getGames()
-        {
-            string line;
-            System.IO.StreamReader file = new System.IO.StreamReader("games.txt");
-            while ((line = file.ReadLine()) != null)
-            {
-                gamelist.Add(line);
-                //Console.WriteLine(line);
-            }
-            file.Close();
-            return gamelist;
-        }
-
-
-        
         public List<List<string>> getGameInfo(String gameName)
-        {
-            List<List<string>> game = new List<List<string>>();
-            string line;
+        {   string line;
             game.Add(new List<string>());//initial line for the name
             game[0].Add(gameName); //saves the game name
             int category=0;
