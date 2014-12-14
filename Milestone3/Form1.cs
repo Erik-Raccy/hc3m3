@@ -12,7 +12,7 @@ namespace Milestone3
 {
     public partial class MainWindow : Form 
     {
-        FileReader reader=new FileReader();
+        FileReader reader = new FileReader();
         int SelectedGame = 0;
         const int small=12;
         const int medium = 18;
@@ -116,6 +116,13 @@ namespace Milestone3
 
             MyGSearchLabel.Visible = true;
             MyGSearch.Visible = true;
+            
+            for (int i = 0; i < reader.getGames().Count() - 1; i++)
+            {
+                Console.WriteLine("hi");
+                EditGList.Items.Add(reader.getGames()[i]);
+            }
+  
         }
 
         private void CSchemeButton_Click(object sender, EventArgs e)
@@ -556,9 +563,5 @@ namespace Milestone3
             uncolorAll();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
