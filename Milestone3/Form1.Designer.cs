@@ -106,6 +106,7 @@
             this.RemoveGButton = new System.Windows.Forms.Button();
             this.AddGButton = new System.Windows.Forms.Button();
             this.EditGPanel = new System.Windows.Forms.Panel();
+            this.EditGList = new System.Windows.Forms.ComboBox();
             this.EditGCancel = new System.Windows.Forms.Button();
             this.EditGConfirm = new System.Windows.Forms.Button();
             this.EditSpecsText = new System.Windows.Forms.TextBox();
@@ -142,7 +143,6 @@
             this.GInfoName = new System.Windows.Forms.Label();
             this.GInfoImage = new System.Windows.Forms.PictureBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.Genre1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Genre1G1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Genre1Add)).BeginInit();
@@ -994,7 +994,7 @@
             // EditGPanel
             // 
             this.EditGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EditGPanel.Controls.Add(this.listBox1);
+            this.EditGPanel.Controls.Add(this.EditGList);
             this.EditGPanel.Controls.Add(this.EditGCancel);
             this.EditGPanel.Controls.Add(this.EditGConfirm);
             this.EditGPanel.Controls.Add(this.EditSpecsText);
@@ -1006,6 +1006,19 @@
             this.EditGPanel.Name = "EditGPanel";
             this.EditGPanel.Size = new System.Drawing.Size(780, 450);
             this.EditGPanel.TabIndex = 5;
+            // 
+            // EditGList
+            // 
+            this.EditGList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditGList.FormattingEnabled = true;
+            this.EditGList.Items.AddRange(new object[] {
+            "Game1",
+            "Game2",
+            "Game3"});
+            this.EditGList.Location = new System.Drawing.Point(89, 42);
+            this.EditGList.Name = "EditGList";
+            this.EditGList.Size = new System.Drawing.Size(197, 26);
+            this.EditGList.TabIndex = 8;
             // 
             // EditGCancel
             // 
@@ -1370,15 +1383,6 @@
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(97, 45);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(186, 17);
-            this.listBox1.TabIndex = 8;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1547,7 +1551,7 @@
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Label Recommended;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox EditGList;
     }
 }
 
