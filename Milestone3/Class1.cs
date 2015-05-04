@@ -9,11 +9,14 @@ namespace Milestone3
     public class FileReader
     {
         List<string> gamelist = new List<string>();
+        List<string> genrelist = new List<String>();
+
         public FileReader()
         {
             getGames();
-           // getGameInfo("LoL");
+            getGenres();
         }
+
         public List<string> getGames()
         {
             string line;
@@ -21,11 +24,23 @@ namespace Milestone3
             while ((line = file.ReadLine()) != null)
             {
                 gamelist.Add(line);
-                //Console.WriteLine(line);
             }
             file.Close();
             return gamelist;
         }
+
+        public List<string> getGenres()
+        {
+            string line;
+            System.IO.StreamReader file = new System.IO.StreamReader("genres.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                genrelist.Add(line);
+            }
+            file.Close();
+            return genrelist;
+        }
+
 
         public List<string> getGamesList()
         {
@@ -36,7 +51,6 @@ namespace Milestone3
         {
             gamelist=game;
         }
-
         
         public List<List<string>> getGameInfo(String gameName)
         {
@@ -60,16 +74,59 @@ namespace Milestone3
                 }
                 
             }
+            file.Close();
+            return game;
+        }
 
-           // for (int i = 0; game.Count() > i; i++)
-           // {
-             //   for (int j = 0; game[i].Count() > j; j++)
-              //  {
-              //      Console.WriteLine(game[i][j]);
-              //  }
-             //   Console.WriteLine("Property " + i + " done");
-         //   }
-                return game;
+        public List<string> getGenreList()
+        {
+            return genrelist;
+        }
+
+        public void setGenre(String gameName, String newGenre)
+        {
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(gameName+".txt");
+            writer.WriteLine(newGenre);
+            writer.Close();
+            if (gameName != "")
+            {
+                System.Windows.Forms.MessageBox.Show("Genre has been changed!");
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Please Enter a Game to change!");
+            }
+        }
+
+        public String getGamesGenre(String gameName)
+        {
+            string line;
+           try
+           {
+                System.IO.StreamReader file = new System.IO.StreamReader(gameName + ".txt");
+                line = file.ReadLine();
+                file.Close();
+                return line;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                return null;
+            }
+        }
+
+        public void addGame(String gameName)
+        {
+            if (System.IO.File.Exists(gameName + ".txt") && gameName != "")
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter("games.txt", true);
+                writer.WriteLine(gameName);
+                writer.Close();
+                System.Windows.Forms.MessageBox.Show("Success!");
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Error: Cannot find file. Did you name it correctly?");
+            }
         }
 
     }

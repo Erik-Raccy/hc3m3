@@ -13,7 +13,12 @@ namespace Milestone3
     public partial class MainWindow : Form 
     {
         FileReader reader = new FileReader();
-        int SelectedGame = 0;
+        PictureBox[] gamePics = new PictureBox[30];
+        PictureBox[] genreAdders = new PictureBox[30];
+        Panel[] genrePanels = new Panel[30];
+        Button[] gameiButtons = new Button[30];
+        Label[] gameLabels = new Label[30];
+        
         const int small=12;
         const int medium = 18;
         const int large = 22;
@@ -47,33 +52,32 @@ namespace Milestone3
             MyGSearch.Visible = false;
 
            
-                uncolorAll();
-                currentTab(ManageGButton);
+            uncolorAll();
+            currentTab(ManageGButton);
             }        
-            }
+        }
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             if (SettingsButton.BackColor != Color.Teal)
             {
-            CSchemePanel.Visible = false;
-            SoundPanel.Visible = false;
-            DisplayPanel.Visible = false;
+                CSchemePanel.Visible = false;
+                SoundPanel.Visible = false;
+                DisplayPanel.Visible = false;
             
-            SettingsPanel.BringToFront();
-            ManageGPanel.SendToBack();
-            MyGPanel.SendToBack();
-            GInfoPanel.SendToBack();
+                SettingsPanel.BringToFront();
+                ManageGPanel.SendToBack();
+                MyGPanel.SendToBack();
+                GInfoPanel.SendToBack();
 
-            MyGPanel.Visible = false;
-            ManageGPanel.Visible = false;
-            SettingsPanel.Visible = true;
-            GInfoPanel.Visible = false;
+                MyGPanel.Visible = false;
+                ManageGPanel.Visible = false;
+                SettingsPanel.Visible = true;
+                GInfoPanel.Visible = false;
             
-            MyGSearchLabel.Visible = false;
-            MyGSearch.Visible = false;
-
-            
+                MyGSearchLabel.Visible = false;
+                MyGSearch.Visible = false;
+         
                 uncolorAll();
                 currentTab(SettingsButton);
             }    
@@ -82,8 +86,20 @@ namespace Milestone3
 
         private void MyGButton_Click(object sender, EventArgs e)
         {
-            if (MyGButton.BackColor != Color.Teal)
-            {
+                /*
+                Array.Clear(gamePics, 0, gamePics.Length);
+                Array.Clear(genreAdders, 0, genreAdders.Length);
+                Array.Clear(genrePanels, 0, genrePanels.Length);
+                Array.Clear(gameiButtons, 0, gameiButtons.Length);
+                
+                Console.WriteLine(reader.getGamesList().Count());
+                reader.getGames();
+                reader.getGenres();            
+                createGenres();
+                populateGenre();
+                Console.WriteLine(reader.getGamesList().Count());
+                */
+                
                 MyGPanel.BringToFront();
                 ManageGPanel.SendToBack();
                 SettingsPanel.SendToBack();
@@ -99,7 +115,6 @@ namespace Milestone3
 
                 uncolorAll();
                 currentTab(MyGButton);
-            }
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -119,15 +134,17 @@ namespace Milestone3
             
             for (int i = 0; i < reader.getGamesList().Count(); i++)
             {
-                Console.WriteLine(i);
-                EditGList.Items.Add(reader.getGamesList()[i]);
+                if (reader.getGamesList() != null)
+                {
+                    EditGList.Items.Add(reader.getGamesList()[i]);
+                }
             }
 
-      
+            createGenres();
+            populateGenre();
 
-           // for(int i;Genre1.count>i;i++)
-            //populater all the genres
-           populateGenre("moba");
+            uncolorAll();
+            currentTab(MyGButton);
         }
 
         private void CSchemeButton_Click(object sender, EventArgs e)
@@ -177,6 +194,23 @@ namespace Milestone3
 
         private void RemoveGButton_Click(object sender, EventArgs e)
         {
+            CheckBox[] DeleteBoxes = new CheckBox[30];
+            for (int i = 0; i < reader.getGamesList().Count(); i++)
+            {
+                DeleteBoxes[i] = new CheckBox();
+                RemoveGPanel.Controls.Add(DeleteBoxes[i]);
+                DeleteBoxes[i].Size = new Size(90, 28);
+                DeleteBoxes[i].Text = reader.getGamesList()[i];
+                DeleteBoxes[i].Font = new Font("Microsoft Sans Serif", 14);
+                if (i == 0)
+                {          
+                    DeleteBoxes[i].Location = new Point(34, 39);
+                }
+                else
+                {
+                    DeleteBoxes[i].Location = new Point(DeleteBoxes[i-1].Location.X, DeleteBoxes[i-1].Location.Y + 62);
+                }
+            }
             RemoveGPanel.Visible = true;
 
             AddGPanel.SendToBack();
@@ -185,6 +219,11 @@ namespace Milestone3
 
             uncolorG();
             currentGTab(RemoveGButton);
+            
+            if (reader.getGamesList().Count() == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("No Games Found :(");
+            }
         }
 
         private void EditGButton_Click(object sender, EventArgs e)
@@ -199,9 +238,17 @@ namespace Milestone3
             currentGTab(EditGButton);
         }
 
-        private void Genre1G1Info_Click(object sender, EventArgs e)
+        private void GInfo_Click(object sender, EventArgs e)
         {
-            SelectedGame = 1;
+            Button source = (Button)sender;
+            GInfoName.Text = reader.getGameInfo(source.Name)[0][0];
+            GInfoDescription.Text = reader.getGameInfo(source.Name)[1][0]+" ";
+            GInfoSpecsBox.Text = reader.getGameInfo(source.Name)[2][0] + " ";
+            PlayHistory.Text = reader.getGameInfo(source.Name)[3][0] + "\n";
+            GInfoImage.ImageLocation = GInfoName.Text + ".png";
+            GInfoImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            GInfoManage.Tag = source.Name;
+            
 
             GInfoPanel.BringToFront();
             MyGPanel.SendToBack();
@@ -216,7 +263,6 @@ namespace Milestone3
             MyGSearchLabel.Visible = false;
             MyGSearch.Visible = false;
         }
-        //matt's test line
 
         //functions to change color
         private void currentTab(Button tab)
@@ -568,58 +614,249 @@ namespace Milestone3
             uncolorAll();
         }
 
-        private void populateGenre(String genre)
+        private void populateGenre()
         {
-            PictureBox[] gamePics = new PictureBox[30];
-            Button[] gameiButtons = new Button[30];
             for (int i = 0; i < reader.getGamesList().Count(); i++)
             {
-                gamePics[i] = new PictureBox();
-                gamePics[i].Size = new Size(104, 109);
-                // gamePics[0].Visible = true;
-                gamePics[i].BorderStyle = BorderStyle.FixedSingle;
-
-
-                gameiButtons[i] = new Button();
-                gameiButtons[i].Size = new Size(36, 38);
-                gameiButtons[i].BackColor = SystemColors.Control;
-                //  gameiButtons[0].BorderStyle = BorderStyle.FixedSingle;
-                gameiButtons[i].Text = "i";
-
-                gameiButtons[i].Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold | FontStyle.Italic);
-
-
-                if (genre == "moba")
+                if (reader.getGamesList()[i] != null)
                 {
-                    Genre1.Controls.Add(gamePics[i]);
-                    Genre1.Controls.Add(gameiButtons[i]);
+                    gameLabels[i] = new Label();
+                    gameLabels[i].Text = reader.getGamesList()[i];
+                    gameLabels[i].Font = new Font("Microsoft Sans Serif", 12);
+                    gameLabels[i].AutoSize = false;
+                    gameLabels[i].TextAlign = ContentAlignment.MiddleCenter;
+                    gameLabels[i].Dock = DockStyle.None;
 
-                    gameiButtons[i].BringToFront();
-                    gamePics[i].Location = new Point(Genre1Add.Location.X, Genre1Add.Location.Y);
-                    gameiButtons[i].Location = new Point(Genre1Add.Location.X + 81, Genre1Add.Location.Y + 88);
-                    Genre1Add.Location = new Point(Genre1Add.Location.X + 144, Genre1Add.Location.Y);
+                    gamePics[i] = new PictureBox();
+                    gamePics[i].Size = new Size(104, 109);
+                    gamePics[i].BorderStyle = BorderStyle.FixedSingle;
+                    gamePics[i].Name = reader.getGamesList()[i];
+                    gamePics[i].ImageLocation = reader.getGamesList()[i] + ".png";
+                    gamePics[i].SizeMode = PictureBoxSizeMode.StretchImage;
+                    gamePics[i].Click += new EventHandler(Game_Click);
+
+                    gameiButtons[i] = new Button();
+                    gameiButtons[i].Size = new Size(36, 38);
+                    gameiButtons[i].BackColor = SystemColors.Control;
+                    gameiButtons[i].Text = "i";
+                    gameiButtons[i].Name = reader.getGamesList()[i];
+                    gameiButtons[i].Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold | FontStyle.Italic);
+                    gameiButtons[i].Click += new EventHandler(GInfo_Click);
                 }
-                else if (genre == "shooter")
-                {
-                    Genre2.Controls.Add(gamePics[i]);
-                    Genre2.Controls.Add(gameiButtons[i]);
 
-                    gameiButtons[i].BringToFront();
-                    gamePics[i].Location = new Point(Genre2Add.Location.X, Genre2Add.Location.Y);
-                    gameiButtons[i].Location = new Point(Genre2Add.Location.X + 81, Genre2Add.Location.Y + 88);
-                    Genre2Add.Location = new Point(Genre2Add.Location.X + 144, Genre2Add.Location.Y);
-                }
-                else if (genre == "fucker")
+                for (int j = 0; j < reader.getGenreList().Count(); j++)
                 {
-                    Genre3.Controls.Add(gamePics[i]);
-                    Genre3.Controls.Add(gameiButtons[i]);
+                    if ( reader.getGenreList()[j] == reader.getGamesGenre(reader.getGamesList()[i]) )
+                    {
+                        genrePanels[j].Controls.Add(gamePics[i]);
+                        genrePanels[j].Controls.Add(gameiButtons[i]);
+                        genrePanels[j].Controls.Add(gameLabels[i]);
 
-                    gameiButtons[i].BringToFront();
-                    gamePics[i].Location = new Point(Genre3Add.Location.X, Genre3Add.Location.Y);
-                    gameiButtons[i].Location = new Point(Genre3Add.Location.X + 81, Genre3Add.Location.Y + 88);
-                    Genre3Add.Location = new Point(Genre3Add.Location.X + 144, Genre3Add.Location.Y);
+                        gameiButtons[i].BringToFront();
+                        gameLabels[i].Location = new Point(genreAdders[j].Location.X, genreAdders[j].Location.Y - 20);
+                        gamePics[i].Location = new Point(genreAdders[j].Location.X, genreAdders[j].Location.Y);
+                        gameiButtons[i].Location = new Point(genreAdders[j].Location.X + 81, genreAdders[j].Location.Y + 88);
+                        genreAdders[j].Location = new Point(genreAdders[j].Location.X + 144, genreAdders[j].Location.Y);
+                    }
                 }
             }
+        }
+
+        private void createGenres()
+        {
+            Label[] genreLabels = new Label[30];
+            for (int i = 0; i < reader.getGenreList().Count(); i++)
+            {
+                genreLabels[i] = new Label();
+                genrePanels[i] = new Panel();
+                genreAdders[i] = new PictureBox();
+
+                if (i == 0)
+                {
+                    MyGPanel.Controls.Add(genreLabels[i]);
+                    genreLabels[i].Location = new Point(13, 17);
+                    genreLabels[i].Text = reader.getGenreList()[i];
+                    genreLabels[i].Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
+
+                    MyGPanel.Controls.Add(genrePanels[i]);
+                    genrePanels[i].Location = new Point(genreLabels[i].Location.X, genreLabels[i].Location.Y + 28);
+                    genrePanels[i].Size = new Size(1126, 162);
+                    genrePanels[i].BorderStyle = BorderStyle.FixedSingle;
+
+                    genrePanels[i].Controls.Add(genreAdders[i]);
+                    genreAdders[i].Location = new Point(22, 25);
+                    genreAdders[i].Size = new Size(104, 109);
+                    genreAdders[i].Image = Image.FromFile("AddGameIcon3.png");
+                    genreAdders[i].BorderStyle = BorderStyle.FixedSingle;
+                    genreAdders[i].Click += new EventHandler(PanelAdd_Click);
+                }
+
+                else
+                {
+                    MyGPanel.Controls.Add(genreLabels[i]);
+                    genreLabels[i].Location = new Point(genreLabels[i - 1].Location.X, genreLabels[i - 1].Location.Y + 203);
+                    genreLabels[i].Text = reader.getGenreList()[i];
+                    genreLabels[i].Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
+
+                    MyGPanel.Controls.Add(genrePanels[i]);
+                    genrePanels[i].Location = new Point(genreLabels[i].Location.X, genreLabels[i].Location.Y + 30);
+                    genrePanels[i].Size = new Size(1126, 162);
+                    genrePanels[i].BorderStyle = BorderStyle.FixedSingle;
+
+                    genrePanels[i].Controls.Add(genreAdders[i]);
+                    genreAdders[i].Location = new Point(22, 25);
+                    genreAdders[i].Size = new Size(104, 109);
+                    genreAdders[i].Image = Image.FromFile("AddGameIcon3.png");
+                    genreAdders[i].BorderStyle = BorderStyle.FixedSingle;
+                    genreAdders[i].Click += new EventHandler(PanelAdd_Click);
+                }
+
+            }
+        }
+
+        private void AddDone_Click(object sender, EventArgs e)
+        {
+            reader.addGame(AddNameText.Text);
+        }
+
+        private void EditGConfirm_Click(object sender, EventArgs e)
+        {
+            reader.setGenre(EditGList.Text, EditGenreText.Text);
+        }
+
+        private void MyGSearch_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < gamePics.Count(); i++)
+            {
+                Console.WriteLine(gamePics[3].Name);
+                try
+                {
+                    if (gamePics[i].Name.Contains(MyGSearch.Text) && MyGSearch.Text != "")
+                    {
+                        gamePics[i].BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        gamePics[i].BackColor = SystemColors.Control;
+                    }
+                }
+                catch (NullReferenceException)
+                { }
+            }
+        }
+
+        private void RemoveConfirm_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < reader.getGamesList().Count(); i++)
+            {
+
+            }
+            System.Windows.Forms.MessageBox.Show("Are you sure you want to remove this game?", "Game Removal", MessageBoxButtons.OKCancel);
+        }
+
+        private void RemoveCancel_Click(object sender, EventArgs e)
+        {
+            RemoveGPanel.Visible = false;
+            AddGPanel.Visible = false;
+            EditGPanel.Visible = false;
+            uncolorG();
+        }
+
+        private void EditGCancel_Click(object sender, EventArgs e)
+        {
+            RemoveGPanel.Visible = false;
+            AddGPanel.Visible = false;
+            EditGPanel.Visible = false;
+            uncolorG();
+        }
+
+        private void AddCancel_Click(object sender, EventArgs e)
+        {
+            RemoveGPanel.Visible = false;
+            AddGPanel.Visible = false;
+            EditGPanel.Visible = false;
+            uncolorG();
+        }
+
+        private void PanelAdd_Click(object sender, EventArgs e)
+        {
+            if (ManageGButton.BackColor != Color.Teal)
+            {
+                AddGPanel.Visible = false;
+                RemoveGPanel.Visible = false;
+                EditGPanel.Visible = false;
+
+                ManageGPanel.BringToFront();
+                MyGPanel.SendToBack();
+                SettingsPanel.SendToBack();
+                GInfoPanel.SendToBack();
+
+                MyGPanel.Visible = false;
+                ManageGPanel.Visible = true;
+                SettingsPanel.Visible = false;
+                GInfoPanel.Visible = false;
+
+                MyGSearchLabel.Visible = false;
+                MyGSearch.Visible = false;
+
+                AddGPanel.Visible = true;
+
+                AddGPanel.BringToFront();
+                RemoveGPanel.SendToBack();
+                EditGPanel.SendToBack();
+
+                uncolorAll();
+                currentTab(ManageGButton);
+
+                uncolorG();
+                currentGTab(AddGButton);
+            }     
+        }
+
+        private void GInfoPlay_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Starting Game");
+        }
+
+        private void Game_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Starting Game");
+        }
+
+        private void GInfoManage_Click(object sender, EventArgs e)
+        {          
+            AddGPanel.Visible = false;
+            RemoveGPanel.Visible = false;
+            EditGPanel.Visible = false;
+
+            ManageGPanel.BringToFront();
+            MyGPanel.SendToBack();
+            SettingsPanel.SendToBack();
+            GInfoPanel.SendToBack();
+
+            MyGPanel.Visible = false;
+            ManageGPanel.Visible = true;
+            SettingsPanel.Visible = false;
+            GInfoPanel.Visible = false;
+
+            MyGSearchLabel.Visible = false;
+            MyGSearch.Visible = false;
+
+            EditGPanel.Visible = true;
+
+            AddGPanel.SendToBack();
+            RemoveGPanel.SendToBack();
+            EditGPanel.BringToFront();
+
+            Button source = (Button) sender;
+
+            EditGList.Text = (String) source.Tag;
+
+            uncolorAll();
+            currentTab(ManageGButton);
+
+            uncolorG();
+            currentGTab(EditGButton);
         }
     }
 }

@@ -1,8 +1,8 @@
-This is description
-This is more description
+MOBA
 ~
-This is specs
-This is more specs
+Description
 ~
-This is play history
-this is more play history
+Specs
+~
+History
+~

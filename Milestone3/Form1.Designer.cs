@@ -34,13 +34,6 @@
             this.SettingsButton = new System.Windows.Forms.Button();
             this.MyGSearch = new System.Windows.Forms.TextBox();
             this.MyGSearchLabel = new System.Windows.Forms.Label();
-            this.Genre1 = new System.Windows.Forms.Panel();
-            this.Genre1Add = new System.Windows.Forms.PictureBox();
-            this.Genre2 = new System.Windows.Forms.Panel();
-            this.Genre3 = new System.Windows.Forms.Panel();
-            this.GenreLabel1 = new System.Windows.Forms.Label();
-            this.GenreLabel2 = new System.Windows.Forms.Label();
-            this.GenreLabel3 = new System.Windows.Forms.Label();
             this.MyGPanel = new System.Windows.Forms.Panel();
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.DisplayButton = new System.Windows.Forms.Button();
@@ -103,32 +96,24 @@
             this.EditGButton = new System.Windows.Forms.Button();
             this.RemoveGButton = new System.Windows.Forms.Button();
             this.AddGButton = new System.Windows.Forms.Button();
+            this.AddGPanel = new System.Windows.Forms.Panel();
+            this.AddCancel = new System.Windows.Forms.Button();
+            this.AddDone = new System.Windows.Forms.Button();
+            this.AddNameText = new System.Windows.Forms.TextBox();
+            this.AddNameLabel = new System.Windows.Forms.Label();
+            this.RemoveGPanel = new System.Windows.Forms.Panel();
+            this.RemoveCancel = new System.Windows.Forms.Button();
+            this.RemoveConfirm = new System.Windows.Forms.Button();
             this.EditGPanel = new System.Windows.Forms.Panel();
             this.EditGList = new System.Windows.Forms.ComboBox();
             this.EditGCancel = new System.Windows.Forms.Button();
             this.EditGConfirm = new System.Windows.Forms.Button();
-            this.EditSpecsText = new System.Windows.Forms.TextBox();
             this.EditGenreText = new System.Windows.Forms.TextBox();
-            this.EditSpecsLabel = new System.Windows.Forms.Label();
             this.EditGenreLabel = new System.Windows.Forms.Label();
             this.EditGLabel = new System.Windows.Forms.Label();
-            this.AddGPanel = new System.Windows.Forms.Panel();
-            this.AddCancel = new System.Windows.Forms.Button();
-            this.AddDone = new System.Windows.Forms.Button();
-            this.AddGenreText = new System.Windows.Forms.TextBox();
-            this.AddGenreLabel = new System.Windows.Forms.Label();
-            this.AddLocationText = new System.Windows.Forms.TextBox();
-            this.AddLocationLabel = new System.Windows.Forms.Label();
-            this.AddNameText = new System.Windows.Forms.TextBox();
-            this.AddNameLabel = new System.Windows.Forms.Label();
-            this.AutoLocation = new System.Windows.Forms.Button();
-            this.RemoveGPanel = new System.Windows.Forms.Panel();
-            this.RemoveCancel = new System.Windows.Forms.Button();
-            this.RemoveConfirm = new System.Windows.Forms.Button();
-            this.RemoveG3 = new System.Windows.Forms.CheckBox();
-            this.RemoveG2 = new System.Windows.Forms.CheckBox();
-            this.RemoveG1 = new System.Windows.Forms.CheckBox();
             this.GInfoPanel = new System.Windows.Forms.Panel();
+            this.PlayHistory = new System.Windows.Forms.RichTextBox();
+            this.PlayHistoryLabel = new System.Windows.Forms.Label();
             this.GInfoSpecs = new System.Windows.Forms.Label();
             this.GInfoManage = new System.Windows.Forms.Button();
             this.ScreenShot4 = new System.Windows.Forms.PictureBox();
@@ -140,14 +125,7 @@
             this.GInfoDescription = new System.Windows.Forms.RichTextBox();
             this.GInfoName = new System.Windows.Forms.Label();
             this.GInfoImage = new System.Windows.Forms.PictureBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.Genre2Add = new System.Windows.Forms.PictureBox();
-            this.Genre3Add = new System.Windows.Forms.PictureBox();
-            this.Genre1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Genre1Add)).BeginInit();
-            this.Genre2.SuspendLayout();
-            this.Genre3.SuspendLayout();
-            this.MyGPanel.SuspendLayout();
+            this.GInfoSpecsBox = new System.Windows.Forms.RichTextBox();
             this.SettingsPanel.SuspendLayout();
             this.CSchemePanel.SuspendLayout();
             this.SoundPanel.SuspendLayout();
@@ -156,9 +134,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.MasterSlider)).BeginInit();
             this.DisplayPanel.SuspendLayout();
             this.ManageGPanel.SuspendLayout();
-            this.EditGPanel.SuspendLayout();
             this.AddGPanel.SuspendLayout();
             this.RemoveGPanel.SuspendLayout();
+            this.EditGPanel.SuspendLayout();
             this.GInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScreenShot4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScreenShot3)).BeginInit();
@@ -166,8 +144,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ScreenShot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Genre2Add)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Genre3Add)).BeginInit();
             this.SuspendLayout();
             // 
             // MyGButton
@@ -207,6 +183,7 @@
             this.MyGSearch.Name = "MyGSearch";
             this.MyGSearch.Size = new System.Drawing.Size(415, 24);
             this.MyGSearch.TabIndex = 0;
+            this.MyGSearch.TextChanged += new System.EventHandler(this.MyGSearch_TextChanged);
             // 
             // MyGSearchLabel
             // 
@@ -218,91 +195,12 @@
             this.MyGSearchLabel.TabIndex = 4;
             this.MyGSearchLabel.Text = "Search:";
             // 
-            // Genre1
-            // 
-            this.Genre1.AutoScroll = true;
-            this.Genre1.BackColor = System.Drawing.SystemColors.Control;
-            this.Genre1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre1.Controls.Add(this.Genre1Add);
-            this.Genre1.Location = new System.Drawing.Point(18, 45);
-            this.Genre1.Name = "Genre1";
-            this.Genre1.Size = new System.Drawing.Size(1126, 162);
-            this.Genre1.TabIndex = 1;
-            // 
-            // Genre1Add
-            // 
-            this.Genre1Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre1Add.Image = ((System.Drawing.Image)(resources.GetObject("Genre1Add.Image")));
-            this.Genre1Add.Location = new System.Drawing.Point(22, 14);
-            this.Genre1Add.Name = "Genre1Add";
-            this.Genre1Add.Size = new System.Drawing.Size(104, 109);
-            this.Genre1Add.TabIndex = 0;
-            this.Genre1Add.TabStop = false;
-            // 
-            // Genre2
-            // 
-            this.Genre2.AutoScroll = true;
-            this.Genre2.BackColor = System.Drawing.SystemColors.Control;
-            this.Genre2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre2.Controls.Add(this.Genre2Add);
-            this.Genre2.Location = new System.Drawing.Point(18, 248);
-            this.Genre2.Name = "Genre2";
-            this.Genre2.Size = new System.Drawing.Size(1126, 148);
-            this.Genre2.TabIndex = 2;
-            // 
-            // Genre3
-            // 
-            this.Genre3.AutoScroll = true;
-            this.Genre3.BackColor = System.Drawing.SystemColors.Control;
-            this.Genre3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre3.Controls.Add(this.Genre3Add);
-            this.Genre3.Location = new System.Drawing.Point(18, 457);
-            this.Genre3.Name = "Genre3";
-            this.Genre3.Size = new System.Drawing.Size(1126, 148);
-            this.Genre3.TabIndex = 3;
-            // 
-            // GenreLabel1
-            // 
-            this.GenreLabel1.AutoSize = true;
-            this.GenreLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenreLabel1.Location = new System.Drawing.Point(13, 17);
-            this.GenreLabel1.Name = "GenreLabel1";
-            this.GenreLabel1.Size = new System.Drawing.Size(77, 25);
-            this.GenreLabel1.TabIndex = 4;
-            this.GenreLabel1.Text = "Genre1";
-            // 
-            // GenreLabel2
-            // 
-            this.GenreLabel2.AutoSize = true;
-            this.GenreLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenreLabel2.Location = new System.Drawing.Point(13, 220);
-            this.GenreLabel2.Name = "GenreLabel2";
-            this.GenreLabel2.Size = new System.Drawing.Size(77, 25);
-            this.GenreLabel2.TabIndex = 5;
-            this.GenreLabel2.Text = "Genre2";
-            // 
-            // GenreLabel3
-            // 
-            this.GenreLabel3.AutoSize = true;
-            this.GenreLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenreLabel3.Location = new System.Drawing.Point(13, 429);
-            this.GenreLabel3.Name = "GenreLabel3";
-            this.GenreLabel3.Size = new System.Drawing.Size(77, 25);
-            this.GenreLabel3.TabIndex = 6;
-            this.GenreLabel3.Text = "Genre3";
-            // 
             // MyGPanel
             // 
             this.MyGPanel.AutoScroll = true;
             this.MyGPanel.AutoScrollMinSize = new System.Drawing.Size(0, 650);
             this.MyGPanel.BackColor = System.Drawing.SystemColors.Control;
             this.MyGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MyGPanel.Controls.Add(this.GenreLabel3);
-            this.MyGPanel.Controls.Add(this.GenreLabel2);
-            this.MyGPanel.Controls.Add(this.GenreLabel1);
-            this.MyGPanel.Controls.Add(this.Genre3);
-            this.MyGPanel.Controls.Add(this.Genre2);
-            this.MyGPanel.Controls.Add(this.Genre1);
             this.MyGPanel.Location = new System.Drawing.Point(0, 60);
             this.MyGPanel.Name = "MyGPanel";
             this.MyGPanel.Size = new System.Drawing.Size(1180, 578);
@@ -974,15 +872,93 @@
             this.AddGButton.UseVisualStyleBackColor = true;
             this.AddGButton.Click += new System.EventHandler(this.AddGButton_Click);
             // 
+            // AddGPanel
+            // 
+            this.AddGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AddGPanel.Controls.Add(this.AddCancel);
+            this.AddGPanel.Controls.Add(this.AddDone);
+            this.AddGPanel.Controls.Add(this.AddNameText);
+            this.AddGPanel.Controls.Add(this.AddNameLabel);
+            this.AddGPanel.Location = new System.Drawing.Point(350, 60);
+            this.AddGPanel.Name = "AddGPanel";
+            this.AddGPanel.Size = new System.Drawing.Size(780, 450);
+            this.AddGPanel.TabIndex = 3;
+            // 
+            // AddCancel
+            // 
+            this.AddCancel.Location = new System.Drawing.Point(217, 332);
+            this.AddCancel.Name = "AddCancel";
+            this.AddCancel.Size = new System.Drawing.Size(107, 61);
+            this.AddCancel.TabIndex = 8;
+            this.AddCancel.Text = "Cancel";
+            this.AddCancel.UseVisualStyleBackColor = true;
+            this.AddCancel.Click += new System.EventHandler(this.AddCancel_Click);
+            // 
+            // AddDone
+            // 
+            this.AddDone.Location = new System.Drawing.Point(36, 332);
+            this.AddDone.Name = "AddDone";
+            this.AddDone.Size = new System.Drawing.Size(107, 61);
+            this.AddDone.TabIndex = 7;
+            this.AddDone.Text = "Done";
+            this.AddDone.UseVisualStyleBackColor = true;
+            this.AddDone.Click += new System.EventHandler(this.AddDone_Click);
+            // 
+            // AddNameText
+            // 
+            this.AddNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddNameText.Location = new System.Drawing.Point(95, 28);
+            this.AddNameText.Name = "AddNameText";
+            this.AddNameText.Size = new System.Drawing.Size(186, 24);
+            this.AddNameText.TabIndex = 2;
+            // 
+            // AddNameLabel
+            // 
+            this.AddNameLabel.AutoSize = true;
+            this.AddNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddNameLabel.Location = new System.Drawing.Point(20, 31);
+            this.AddNameLabel.Name = "AddNameLabel";
+            this.AddNameLabel.Size = new System.Drawing.Size(52, 18);
+            this.AddNameLabel.TabIndex = 1;
+            this.AddNameLabel.Text = "Name:";
+            // 
+            // RemoveGPanel
+            // 
+            this.RemoveGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RemoveGPanel.Controls.Add(this.RemoveCancel);
+            this.RemoveGPanel.Controls.Add(this.RemoveConfirm);
+            this.RemoveGPanel.Location = new System.Drawing.Point(350, 60);
+            this.RemoveGPanel.Name = "RemoveGPanel";
+            this.RemoveGPanel.Size = new System.Drawing.Size(780, 450);
+            this.RemoveGPanel.TabIndex = 4;
+            // 
+            // RemoveCancel
+            // 
+            this.RemoveCancel.Location = new System.Drawing.Point(268, 368);
+            this.RemoveCancel.Name = "RemoveCancel";
+            this.RemoveCancel.Size = new System.Drawing.Size(203, 51);
+            this.RemoveCancel.TabIndex = 11;
+            this.RemoveCancel.Text = "Cancel";
+            this.RemoveCancel.UseVisualStyleBackColor = true;
+            this.RemoveCancel.Click += new System.EventHandler(this.RemoveCancel_Click);
+            // 
+            // RemoveConfirm
+            // 
+            this.RemoveConfirm.Location = new System.Drawing.Point(23, 368);
+            this.RemoveConfirm.Name = "RemoveConfirm";
+            this.RemoveConfirm.Size = new System.Drawing.Size(203, 51);
+            this.RemoveConfirm.TabIndex = 10;
+            this.RemoveConfirm.Text = "Confirm";
+            this.RemoveConfirm.UseVisualStyleBackColor = true;
+            this.RemoveConfirm.Click += new System.EventHandler(this.RemoveConfirm_Click);
+            // 
             // EditGPanel
             // 
             this.EditGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EditGPanel.Controls.Add(this.EditGList);
             this.EditGPanel.Controls.Add(this.EditGCancel);
             this.EditGPanel.Controls.Add(this.EditGConfirm);
-            this.EditGPanel.Controls.Add(this.EditSpecsText);
             this.EditGPanel.Controls.Add(this.EditGenreText);
-            this.EditGPanel.Controls.Add(this.EditSpecsLabel);
             this.EditGPanel.Controls.Add(this.EditGenreLabel);
             this.EditGPanel.Controls.Add(this.EditGLabel);
             this.EditGPanel.Location = new System.Drawing.Point(350, 60);
@@ -1007,6 +983,7 @@
             this.EditGCancel.TabIndex = 7;
             this.EditGCancel.Text = "Cancel";
             this.EditGCancel.UseVisualStyleBackColor = true;
+            this.EditGCancel.Click += new System.EventHandler(this.EditGCancel_Click);
             // 
             // EditGConfirm
             // 
@@ -1016,14 +993,7 @@
             this.EditGConfirm.TabIndex = 6;
             this.EditGConfirm.Text = "Confirm";
             this.EditGConfirm.UseVisualStyleBackColor = true;
-            // 
-            // EditSpecsText
-            // 
-            this.EditSpecsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditSpecsText.Location = new System.Drawing.Point(95, 219);
-            this.EditSpecsText.Name = "EditSpecsText";
-            this.EditSpecsText.Size = new System.Drawing.Size(186, 24);
-            this.EditSpecsText.TabIndex = 5;
+            this.EditGConfirm.Click += new System.EventHandler(this.EditGConfirm_Click);
             // 
             // EditGenreText
             // 
@@ -1032,16 +1002,6 @@
             this.EditGenreText.Name = "EditGenreText";
             this.EditGenreText.Size = new System.Drawing.Size(186, 24);
             this.EditGenreText.TabIndex = 4;
-            // 
-            // EditSpecsLabel
-            // 
-            this.EditSpecsLabel.AutoSize = true;
-            this.EditSpecsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditSpecsLabel.Location = new System.Drawing.Point(34, 219);
-            this.EditSpecsLabel.Name = "EditSpecsLabel";
-            this.EditSpecsLabel.Size = new System.Drawing.Size(50, 18);
-            this.EditSpecsLabel.TabIndex = 2;
-            this.EditSpecsLabel.Text = "Specs";
             // 
             // EditGenreLabel
             // 
@@ -1063,174 +1023,12 @@
             this.EditGLabel.TabIndex = 0;
             this.EditGLabel.Text = "Game";
             // 
-            // AddGPanel
-            // 
-            this.AddGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AddGPanel.Controls.Add(this.AddCancel);
-            this.AddGPanel.Controls.Add(this.AddDone);
-            this.AddGPanel.Controls.Add(this.AddGenreText);
-            this.AddGPanel.Controls.Add(this.AddGenreLabel);
-            this.AddGPanel.Controls.Add(this.AddLocationText);
-            this.AddGPanel.Controls.Add(this.AddLocationLabel);
-            this.AddGPanel.Controls.Add(this.AddNameText);
-            this.AddGPanel.Controls.Add(this.AddNameLabel);
-            this.AddGPanel.Controls.Add(this.AutoLocation);
-            this.AddGPanel.Location = new System.Drawing.Point(350, 60);
-            this.AddGPanel.Name = "AddGPanel";
-            this.AddGPanel.Size = new System.Drawing.Size(780, 450);
-            this.AddGPanel.TabIndex = 3;
-            // 
-            // AddCancel
-            // 
-            this.AddCancel.Location = new System.Drawing.Point(196, 270);
-            this.AddCancel.Name = "AddCancel";
-            this.AddCancel.Size = new System.Drawing.Size(107, 61);
-            this.AddCancel.TabIndex = 8;
-            this.AddCancel.Text = "Cancel";
-            this.AddCancel.UseVisualStyleBackColor = true;
-            // 
-            // AddDone
-            // 
-            this.AddDone.Location = new System.Drawing.Point(29, 270);
-            this.AddDone.Name = "AddDone";
-            this.AddDone.Size = new System.Drawing.Size(107, 61);
-            this.AddDone.TabIndex = 7;
-            this.AddDone.Text = "Done";
-            this.AddDone.UseVisualStyleBackColor = true;
-            // 
-            // AddGenreText
-            // 
-            this.AddGenreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddGenreText.Location = new System.Drawing.Point(95, 199);
-            this.AddGenreText.Name = "AddGenreText";
-            this.AddGenreText.Size = new System.Drawing.Size(186, 24);
-            this.AddGenreText.TabIndex = 6;
-            // 
-            // AddGenreLabel
-            // 
-            this.AddGenreLabel.AutoSize = true;
-            this.AddGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddGenreLabel.Location = new System.Drawing.Point(20, 205);
-            this.AddGenreLabel.Name = "AddGenreLabel";
-            this.AddGenreLabel.Size = new System.Drawing.Size(53, 18);
-            this.AddGenreLabel.TabIndex = 5;
-            this.AddGenreLabel.Text = "Genre:";
-            // 
-            // AddLocationText
-            // 
-            this.AddLocationText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLocationText.Location = new System.Drawing.Point(95, 106);
-            this.AddLocationText.Name = "AddLocationText";
-            this.AddLocationText.Size = new System.Drawing.Size(186, 24);
-            this.AddLocationText.TabIndex = 4;
-            // 
-            // AddLocationLabel
-            // 
-            this.AddLocationLabel.AutoSize = true;
-            this.AddLocationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLocationLabel.Location = new System.Drawing.Point(20, 109);
-            this.AddLocationLabel.Name = "AddLocationLabel";
-            this.AddLocationLabel.Size = new System.Drawing.Size(69, 18);
-            this.AddLocationLabel.TabIndex = 3;
-            this.AddLocationLabel.Text = "Location:";
-            // 
-            // AddNameText
-            // 
-            this.AddNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNameText.Location = new System.Drawing.Point(95, 28);
-            this.AddNameText.Name = "AddNameText";
-            this.AddNameText.Size = new System.Drawing.Size(186, 24);
-            this.AddNameText.TabIndex = 2;
-            // 
-            // AddNameLabel
-            // 
-            this.AddNameLabel.AutoSize = true;
-            this.AddNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNameLabel.Location = new System.Drawing.Point(20, 31);
-            this.AddNameLabel.Name = "AddNameLabel";
-            this.AddNameLabel.Size = new System.Drawing.Size(52, 18);
-            this.AddNameLabel.TabIndex = 1;
-            this.AddNameLabel.Text = "Name:";
-            // 
-            // AutoLocation
-            // 
-            this.AutoLocation.Location = new System.Drawing.Point(299, 106);
-            this.AutoLocation.Name = "AutoLocation";
-            this.AutoLocation.Size = new System.Drawing.Size(75, 23);
-            this.AutoLocation.TabIndex = 0;
-            this.AutoLocation.Text = "Auto";
-            this.AutoLocation.UseVisualStyleBackColor = true;
-            // 
-            // RemoveGPanel
-            // 
-            this.RemoveGPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RemoveGPanel.Controls.Add(this.RemoveCancel);
-            this.RemoveGPanel.Controls.Add(this.RemoveConfirm);
-            this.RemoveGPanel.Controls.Add(this.RemoveG3);
-            this.RemoveGPanel.Controls.Add(this.RemoveG2);
-            this.RemoveGPanel.Controls.Add(this.RemoveG1);
-            this.RemoveGPanel.Location = new System.Drawing.Point(350, 60);
-            this.RemoveGPanel.Name = "RemoveGPanel";
-            this.RemoveGPanel.Size = new System.Drawing.Size(780, 450);
-            this.RemoveGPanel.TabIndex = 4;
-            // 
-            // RemoveCancel
-            // 
-            this.RemoveCancel.Location = new System.Drawing.Point(268, 368);
-            this.RemoveCancel.Name = "RemoveCancel";
-            this.RemoveCancel.Size = new System.Drawing.Size(203, 51);
-            this.RemoveCancel.TabIndex = 11;
-            this.RemoveCancel.Text = "Cancel";
-            this.RemoveCancel.UseVisualStyleBackColor = true;
-            // 
-            // RemoveConfirm
-            // 
-            this.RemoveConfirm.Location = new System.Drawing.Point(23, 368);
-            this.RemoveConfirm.Name = "RemoveConfirm";
-            this.RemoveConfirm.Size = new System.Drawing.Size(203, 51);
-            this.RemoveConfirm.TabIndex = 10;
-            this.RemoveConfirm.Text = "Confirm";
-            this.RemoveConfirm.UseVisualStyleBackColor = true;
-            // 
-            // RemoveG3
-            // 
-            this.RemoveG3.AutoSize = true;
-            this.RemoveG3.BackColor = System.Drawing.SystemColors.Control;
-            this.RemoveG3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveG3.Location = new System.Drawing.Point(34, 168);
-            this.RemoveG3.Name = "RemoveG3";
-            this.RemoveG3.Size = new System.Drawing.Size(90, 28);
-            this.RemoveG3.TabIndex = 9;
-            this.RemoveG3.Text = "Game3";
-            this.RemoveG3.UseVisualStyleBackColor = false;
-            // 
-            // RemoveG2
-            // 
-            this.RemoveG2.AutoSize = true;
-            this.RemoveG2.BackColor = System.Drawing.SystemColors.Control;
-            this.RemoveG2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveG2.Location = new System.Drawing.Point(34, 101);
-            this.RemoveG2.Name = "RemoveG2";
-            this.RemoveG2.Size = new System.Drawing.Size(90, 28);
-            this.RemoveG2.TabIndex = 8;
-            this.RemoveG2.Text = "Game2";
-            this.RemoveG2.UseVisualStyleBackColor = false;
-            // 
-            // RemoveG1
-            // 
-            this.RemoveG1.AutoSize = true;
-            this.RemoveG1.BackColor = System.Drawing.SystemColors.Control;
-            this.RemoveG1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveG1.Location = new System.Drawing.Point(34, 39);
-            this.RemoveG1.Name = "RemoveG1";
-            this.RemoveG1.Size = new System.Drawing.Size(90, 28);
-            this.RemoveG1.TabIndex = 7;
-            this.RemoveG1.Text = "Game1";
-            this.RemoveG1.UseVisualStyleBackColor = false;
-            // 
             // GInfoPanel
             // 
+            this.GInfoPanel.AutoScroll = true;
             this.GInfoPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.GInfoPanel.Controls.Add(this.PlayHistory);
+            this.GInfoPanel.Controls.Add(this.PlayHistoryLabel);
             this.GInfoPanel.Controls.Add(this.GInfoSpecs);
             this.GInfoPanel.Controls.Add(this.GInfoManage);
             this.GInfoPanel.Controls.Add(this.ScreenShot4);
@@ -1242,11 +1040,31 @@
             this.GInfoPanel.Controls.Add(this.GInfoDescription);
             this.GInfoPanel.Controls.Add(this.GInfoName);
             this.GInfoPanel.Controls.Add(this.GInfoImage);
-            this.GInfoPanel.Controls.Add(this.richTextBox2);
+            this.GInfoPanel.Controls.Add(this.GInfoSpecsBox);
             this.GInfoPanel.Location = new System.Drawing.Point(0, 60);
             this.GInfoPanel.Name = "GInfoPanel";
             this.GInfoPanel.Size = new System.Drawing.Size(1180, 620);
             this.GInfoPanel.TabIndex = 6;
+            // 
+            // PlayHistory
+            // 
+            this.PlayHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PlayHistory.Location = new System.Drawing.Point(440, 332);
+            this.PlayHistory.Name = "PlayHistory";
+            this.PlayHistory.ReadOnly = true;
+            this.PlayHistory.Size = new System.Drawing.Size(249, 233);
+            this.PlayHistory.TabIndex = 14;
+            this.PlayHistory.Text = "";
+            // 
+            // PlayHistoryLabel
+            // 
+            this.PlayHistoryLabel.AutoSize = true;
+            this.PlayHistoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayHistoryLabel.Location = new System.Drawing.Point(463, 283);
+            this.PlayHistoryLabel.Name = "PlayHistoryLabel";
+            this.PlayHistoryLabel.Size = new System.Drawing.Size(160, 31);
+            this.PlayHistoryLabel.TabIndex = 13;
+            this.PlayHistoryLabel.Text = "Play History";
             // 
             // GInfoSpecs
             // 
@@ -1267,11 +1085,12 @@
             this.GInfoManage.TabIndex = 10;
             this.GInfoManage.Text = "Manage";
             this.GInfoManage.UseVisualStyleBackColor = true;
+            this.GInfoManage.Click += new System.EventHandler(this.GInfoManage_Click);
             // 
             // ScreenShot4
             // 
             this.ScreenShot4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ScreenShot4.Location = new System.Drawing.Point(520, 332);
+            this.ScreenShot4.Location = new System.Drawing.Point(186, 500);
             this.ScreenShot4.Name = "ScreenShot4";
             this.ScreenShot4.Size = new System.Drawing.Size(159, 162);
             this.ScreenShot4.TabIndex = 9;
@@ -1280,7 +1099,7 @@
             // ScreenShot3
             // 
             this.ScreenShot3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ScreenShot3.Location = new System.Drawing.Point(355, 332);
+            this.ScreenShot3.Location = new System.Drawing.Point(19, 500);
             this.ScreenShot3.Name = "ScreenShot3";
             this.ScreenShot3.Size = new System.Drawing.Size(159, 162);
             this.ScreenShot3.TabIndex = 8;
@@ -1317,11 +1136,14 @@
             // GInfoPlay
             // 
             this.GInfoPlay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GInfoPlay.Image = ((System.Drawing.Image)(resources.GetObject("GInfoPlay.Image")));
             this.GInfoPlay.Location = new System.Drawing.Point(780, 61);
             this.GInfoPlay.Name = "GInfoPlay";
             this.GInfoPlay.Size = new System.Drawing.Size(249, 212);
+            this.GInfoPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.GInfoPlay.TabIndex = 4;
             this.GInfoPlay.TabStop = false;
+            this.GInfoPlay.Click += new System.EventHandler(this.GInfoPlay_Click);
             // 
             // GInfoDescription
             // 
@@ -1352,35 +1174,15 @@
             this.GInfoImage.TabIndex = 0;
             this.GInfoImage.TabStop = false;
             // 
-            // richTextBox2
+            // GInfoSpecsBox
             // 
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox2.Location = new System.Drawing.Point(780, 366);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(249, 233);
-            this.richTextBox2.TabIndex = 12;
-            this.richTextBox2.Text = "";
-            // 
-            // Genre2Add
-            // 
-            this.Genre2Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre2Add.Image = ((System.Drawing.Image)(resources.GetObject("Genre2Add.Image")));
-            this.Genre2Add.Location = new System.Drawing.Point(22, 17);
-            this.Genre2Add.Name = "Genre2Add";
-            this.Genre2Add.Size = new System.Drawing.Size(104, 109);
-            this.Genre2Add.TabIndex = 1;
-            this.Genre2Add.TabStop = false;
-            // 
-            // Genre3Add
-            // 
-            this.Genre3Add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Genre3Add.Image = ((System.Drawing.Image)(resources.GetObject("Genre3Add.Image")));
-            this.Genre3Add.Location = new System.Drawing.Point(22, 8);
-            this.Genre3Add.Name = "Genre3Add";
-            this.Genre3Add.Size = new System.Drawing.Size(104, 109);
-            this.Genre3Add.TabIndex = 1;
-            this.Genre3Add.TabStop = false;
+            this.GInfoSpecsBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GInfoSpecsBox.Location = new System.Drawing.Point(780, 366);
+            this.GInfoSpecsBox.Name = "GInfoSpecsBox";
+            this.GInfoSpecsBox.ReadOnly = true;
+            this.GInfoSpecsBox.Size = new System.Drawing.Size(249, 233);
+            this.GInfoSpecsBox.TabIndex = 12;
+            this.GInfoSpecsBox.Text = "";
             // 
             // MainWindow
             // 
@@ -1393,19 +1195,13 @@
             this.Controls.Add(this.ManageGButton);
             this.Controls.Add(this.MyGButton);
             this.Controls.Add(this.MyGSearchLabel);
-            this.Controls.Add(this.MyGPanel);
             this.Controls.Add(this.GInfoPanel);
             this.Controls.Add(this.ManageGPanel);
             this.Controls.Add(this.SettingsPanel);
+            this.Controls.Add(this.MyGPanel);
             this.Name = "MainWindow";
             this.Text = "Ice";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.Genre1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Genre1Add)).EndInit();
-            this.Genre2.ResumeLayout(false);
-            this.Genre3.ResumeLayout(false);
-            this.MyGPanel.ResumeLayout(false);
-            this.MyGPanel.PerformLayout();
             this.SettingsPanel.ResumeLayout(false);
             this.CSchemePanel.ResumeLayout(false);
             this.CSchemePanel.PerformLayout();
@@ -1417,12 +1213,11 @@
             this.DisplayPanel.ResumeLayout(false);
             this.DisplayPanel.PerformLayout();
             this.ManageGPanel.ResumeLayout(false);
-            this.EditGPanel.ResumeLayout(false);
-            this.EditGPanel.PerformLayout();
             this.AddGPanel.ResumeLayout(false);
             this.AddGPanel.PerformLayout();
             this.RemoveGPanel.ResumeLayout(false);
-            this.RemoveGPanel.PerformLayout();
+            this.EditGPanel.ResumeLayout(false);
+            this.EditGPanel.PerformLayout();
             this.GInfoPanel.ResumeLayout(false);
             this.GInfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScreenShot4)).EndInit();
@@ -1431,8 +1226,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ScreenShot1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GInfoImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Genre2Add)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Genre3Add)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1445,13 +1238,6 @@
         private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.TextBox MyGSearch;
         private System.Windows.Forms.Label MyGSearchLabel;
-        private System.Windows.Forms.Panel Genre1;
-        private System.Windows.Forms.PictureBox Genre1Add;
-        private System.Windows.Forms.Panel Genre2;
-        private System.Windows.Forms.Panel Genre3;
-        private System.Windows.Forms.Label GenreLabel1;
-        private System.Windows.Forms.Label GenreLabel2;
-        private System.Windows.Forms.Label GenreLabel3;
         private System.Windows.Forms.Panel MyGPanel;
         private System.Windows.Forms.Panel SettingsPanel;
         private System.Windows.Forms.Button DisplayButton;
@@ -1481,27 +1267,17 @@
         private System.Windows.Forms.Button RemoveGButton;
         private System.Windows.Forms.Button AddGButton;
         private System.Windows.Forms.Panel AddGPanel;
-        private System.Windows.Forms.TextBox AddGenreText;
-        private System.Windows.Forms.Label AddGenreLabel;
-        private System.Windows.Forms.TextBox AddLocationText;
-        private System.Windows.Forms.Label AddLocationLabel;
         private System.Windows.Forms.TextBox AddNameText;
         private System.Windows.Forms.Label AddNameLabel;
-        private System.Windows.Forms.Button AutoLocation;
         private System.Windows.Forms.Panel RemoveGPanel;
         private System.Windows.Forms.Panel EditGPanel;
         private System.Windows.Forms.Label EditGenreLabel;
         private System.Windows.Forms.Label EditGLabel;
         private System.Windows.Forms.Button AddCancel;
         private System.Windows.Forms.Button AddDone;
-        private System.Windows.Forms.TextBox EditSpecsText;
         private System.Windows.Forms.TextBox EditGenreText;
-        private System.Windows.Forms.Label EditSpecsLabel;
         private System.Windows.Forms.Button RemoveCancel;
         private System.Windows.Forms.Button RemoveConfirm;
-        private System.Windows.Forms.CheckBox RemoveG3;
-        private System.Windows.Forms.CheckBox RemoveG2;
-        private System.Windows.Forms.CheckBox RemoveG1;
         private System.Windows.Forms.Button EditGCancel;
         private System.Windows.Forms.Button EditGConfirm;
         private System.Windows.Forms.Panel GInfoPanel;
@@ -1516,7 +1292,7 @@
         private System.Windows.Forms.PictureBox ScreenShot1;
         private System.Windows.Forms.Label GInfoScreenshots;
         private System.Windows.Forms.PictureBox GInfoPlay;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox GInfoSpecsBox;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
@@ -1552,8 +1328,8 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Label Recommended;
         private System.Windows.Forms.ComboBox EditGList;
-        private System.Windows.Forms.PictureBox Genre2Add;
-        private System.Windows.Forms.PictureBox Genre3Add;
+        private System.Windows.Forms.RichTextBox PlayHistory;
+        private System.Windows.Forms.Label PlayHistoryLabel;
     }
 }
 
