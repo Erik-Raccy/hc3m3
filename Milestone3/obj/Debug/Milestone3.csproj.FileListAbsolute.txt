@@ -41,6 +41,7 @@ C:\Users\Jim\Desktop\school shit\4th Year\4HC3\hc3m3\hc3m3\Milestone3\bin\Debug\
 C:\Users\Erik\Documents\GitHub\hc3m3\hc3m3\hc3m3\hc3m3\Milestone3\bin\Debug\Milestone3.exe.config
 C:\Users\Erik\Documents\GitHub\hc3m3\hc3m3\hc3m3\hc3m3\Milestone3\obj\Debug\Milestone3.exe
 C:\Users\Erik\Documents\GitHub\hc3m3\hc3m3\hc3m3\hc3m3\Milestone3\obj\Debug\Milestone3.pdb
+<<<<<<< HEAD
 C:\Users\Erik\Desktop\hc3m3\hc3m3\Milestone3\bin\Debug\Milestone3.exe.config
 C:\Users\Erik\Desktop\hc3m3\hc3m3\Milestone3\obj\Debug\Milestone3.exe
 C:\Users\Erik\Desktop\hc3m3\hc3m3\Milestone3\obj\Debug\Milestone3.pdb
@@ -50,3 +51,5 @@ C:\Users\Erik\Desktop\hc3m3\hc3m3\Milestone3\obj\Debug\Milestone3.Properties.Res
 C:\Users\Erik\Desktop\hc3m3\hc3m3\Milestone3\obj\Debug\Milestone3.csproj.GenerateResource.Cache
 C:\Users\Erik\Desktop\hc3m3\hc3m3\Milestone3\bin\Debug\Milestone3.exe
 C:\Users\Erik\Desktop\hc3m3\hc3m3\Milestone3\bin\Debug\Milestone3.pdb
+=======
+>>>>>>> origin/master
